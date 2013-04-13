@@ -2,12 +2,11 @@
 
 var program = require('commander'),
     fs      = require('fs'),
-    exec    = require('child_process').exec,
-    wrench  = require('wrench'),
     cwd     = process.cwd(),
     appdata = process.env.APPDATA + "\\";
 
-var devmode = require('./tasks/devmode');
+var init    = require('./tasks/init'),
+    devmode = require('./tasks/devmode');
 
 var dir = [
   appdata + "Construct2",
@@ -39,25 +38,7 @@ if(fs.existsSync(cwd + '/addon.json')) {
 program
   .command('init [type]')
   .description("Initialize an addon project. Possible types: plugin, behavior, effect")
-  .action(function(type) {
-    switch(type) {
-      case "plugin":
-        wrench.copyDirSyncRecursive(__dirname + "/templates/plugin", cwd);
-        console.log("Initialized a new plugin project.");
-        break;
-      case "behavior":
-        wrench.copyDirSyncRecursive(__dirname + "/templates/behavior", cwd);
-        console.log("Initialized a new behavior project.");
-        break;
-      case "effect":
-        wrench.copyDirSyncRecursive(__dirname + "/templates/effect", cwd);
-        console.log("Initialized a new effect project.");
-        break;
-      default:
-        console.log("Invalid or no project type was specified.");
-        break;
-    }
-  });
+  .action(init);
 
 // > crank build
 // Compiles the current plugin into a .c2addon file.
