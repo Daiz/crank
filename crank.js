@@ -3,6 +3,7 @@
 var program = require('commander'),
     fs      = require('fs'),
     exec    = require('child_process').exec,
+    wrench  = require('wrench'),
     cwd     = process.cwd(),
     appdata = process.env.APPDATA + "\\";
 
@@ -27,8 +28,8 @@ if(windows) {
 
 // check for addon.json and load it if found
 var addon;
-if(fs.existsSync('./addon.json')) {
-  addon = require('./addon.json');
+if(fs.existsSync(cwd + '/addon.json')) {
+  addon = require(cwd + '/addon.json');
 }
 
 // > crank init [plugin/behavior/effect]
