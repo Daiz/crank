@@ -25,6 +25,12 @@ if(windows) {
   }
 }
 
+// check for addon.json and load it if found
+var addon;
+if(fs.existsSync('./addon.json')) {
+  addon = require('./addon.json');
+}
+
 // > crank init [plugin/behavior/effect]
 // Initializes an addon project with the correct template files.
 program
