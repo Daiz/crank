@@ -1,10 +1,29 @@
 /*jshint node:true */
 
 var program = require('commander'),
-    exec    = require('child_process').exec;
+    fs      = require('fs'),
+    exec    = require('child_process').exec,
+    cwd     = process.cwd(),
+    appdata = process.env.APPDATA + "\\";
+
+var dir = [
+  appdata + "Construct2",
+  appdata + "Construct2\\plugins",
+  appdata + "Construct2\\behaviors",
+  appdata + "Construct2\\effects"
+];
 
 // platform check
 var windows = (process.platform === 'win32');
+
+// check if appdata folders exist and make them if not
+if(windows) {
+  for(var i = 0; i < 4; i++) {
+    if(!fs.existsSync(dir[i])) {
+      fs.mkdirSync(dir[i]);
+    }
+  }
+}
 
 // > crank init [plugin/behavior/effect]
 // Initializes an addon project with the correct template files.
@@ -71,7 +90,7 @@ program
           }
         });
       }
-      
+
     });
 
   });
