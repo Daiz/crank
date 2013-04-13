@@ -1,13 +1,19 @@
 /*jshint node:true */
 
+// load npm modules
 var program = require('commander'),
-    fs      = require('fs'),
-    cwd     = process.cwd(),
-    appdata = process.env.APPDATA + "\\";
+    fs      = require('fs');
 
+// load our own modules
 var init    = require('./tasks/init'),
+    build   = require('./tasks/build'),
     devmode = require('./tasks/devmode');
 
+// set some shortcut variables
+var cwd     = process.cwd(),
+    appdata = process.env.APPDATA + "\\";
+
+// relevant paths to check
 var dir = [
   appdata + "Construct2",
   appdata + "Construct2\\plugins",
