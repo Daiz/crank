@@ -59,7 +59,12 @@ program
   .command('build')
   .description("Build the current project into a .c2addon file.")
   .action(function() {
-
+    if(!addon) {
+      console.log("No project found. Aborting.");
+      process.exit(1);
+    } else {
+      build(addon);
+    }
   });
 
 // > crank watch
