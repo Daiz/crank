@@ -1,5 +1,7 @@
 /*jshint node:true */
 
+var exec = require('child_process').exec;
+
 module.exports = function() {
 
   if(process.platform !== "win32") {
