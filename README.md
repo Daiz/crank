@@ -1,6 +1,6 @@
 # Crank - The Construct 2 Addon Build Tool
 
-Crank is a command-line build tool written for [Node.js](http://nodejs.org/) with the goal of making addon development for Scirra's [Construct 2](http://scirra.com) nicer. The installation is simple:
+Crank is a command-line build tool written for [Node.js](http://nodejs.org/) with the goal of making addon development for Scirra's [Construct 2](http://scirra.com) nicer. The installation is simple (*however, it's not available just yet*):
 
 ```
 npm install crank -g
