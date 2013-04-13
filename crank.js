@@ -15,7 +15,7 @@ program
 // Compiles the current plugin into a .c2addon file.
 program
   .command('build')
-  .description('Build the current project into a .c2addon file.')
+  .description("Build the current project into a .c2addon file.")
   .action(function() {
 
   });
@@ -25,7 +25,16 @@ program
 // for quick previewing. Only available on Windows.
 program
   .command('watch')
-  .description('Watch project files for changes and update the addon in Construc 2.')
+  .description("Watch project files for changes and update the addon in Construct 2.")
+  .action(function() {
+
+  });
+
+// > crank devmode
+// Toggle Construct 2 developer mode on or off. Modifies the required Windows registry value.
+program
+  .command('devmode')
+  .description("Toggle Construct 2 developed mode on or off.")
   .action(function() {
 
   });
