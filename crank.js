@@ -7,6 +7,8 @@ var program = require('commander'),
     cwd     = process.cwd(),
     appdata = process.env.APPDATA + "\\";
 
+var devmode = require('./tasks/devmode');
+
 var dir = [
   appdata + "Construct2",
   appdata + "Construct2\\plugins",
@@ -82,47 +84,6 @@ program
 program
   .command('devmode')
   .description("Toggle C2 developer mode on or off. Windows-only.")
-  .action(function() {
-    wincheck();
-
-    var regpath = "HKEY_CURRENT_USER\\Software\\Scirra\\Construct2\\html5",
-        newmode;
-    exec('reg query "'+regpath+'" /v "devmode"', function(err, stdout, stderr) {
-      if(err) {
-        console.log("Error while executing command: " + err);
-      }
-
-      var strerr = ''+stderr,
-          strout = ''+stdout;
-
-      if(strerr.match("unable to find")) {
-        newmode = 1;
-      }
-
-      if(strout.match("REG_DWORD")) {
-        newmode = strout.match("0x1") ? 0 : 1;
-      }
-
-      if(newmode !== null) {
-        exec('reg add "'+regpath+'" /v "devmode" /t REG_DWORD /d '+newmode+' /f', function(err, stdout, stderr) {
-          if(err) {
-            console.log("Error while executing command: " + err);
-          }
-          if(!stderr) {
-            console.log("The developer mode is now " + (newmode ? "on." : "off."));
-          }
-        });
-      }
-
-    });
-
-  });
+  .action(devmode);
 
 program.parse(process.argv);
-
-function wincheck() {
-  if(!windows) {
-    console.log("This command is not available on non-Windows platforms.");
-    process.exit(1);
-  }
-}
