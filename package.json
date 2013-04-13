@@ -1,0 +1,25 @@
+{
+  "name": "crank",
+  "version": "0.0.1",
+  "author": "Daiz <taneli.vatanen@gmail.com>",
+  "description": "Crank is a build tool for Construct 2 addons.",
+  "license": "MIT",
+  "main": "crank.js",
+  "dependencies": {
+    "commander": "~1.1.1",
+    "xmlbuilder": "~0.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Daiz-/crank"
+  },
+  "keywords": [
+    "construct2",
+    "build",
+    "make"
+  ]
+}
