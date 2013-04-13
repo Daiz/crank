@@ -38,7 +38,14 @@ if(fs.existsSync(cwd + '/addon.json')) {
 program
   .command('init [type]')
   .description("Initialize an addon project. Possible types: plugin, behavior, effect")
-  .action(init);
+  .action(function(type) {
+    if(addon && addon.type) {
+      console.log("A project already exists in the current directory!");
+      process.exit(1);
+    } else {
+      init(type);
+    }
+  });
 
 // > crank build
 // Compiles the current plugin into a .c2addon file.
