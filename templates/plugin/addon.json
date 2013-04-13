@@ -1,0 +1,9 @@
+{
+  "type": "plugin",
+  "name": "My Construct 2 Plugin",
+  "version": "0.1",
+  "author": "Your Name Here",
+  "website": "http://example.com",
+  "documentation": "https://www.scirra.com/manual/1/construct-2",
+  "description": "A short description of what this plugin does."
+}
