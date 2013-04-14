@@ -13,6 +13,7 @@ var init    = require('./tasks/init'),
 // set some shortcut variables
 var cwd     = process.cwd(),
     appdata = process.env.APPDATA + "\\";
+    version = require('./package.json').version;
 
 // relevant paths to check
 var dir = [
@@ -39,6 +40,9 @@ var addon;
 if(fs.existsSync(cwd + '/addon.json')) {
   addon = require(cwd + '/addon.json');
 }
+
+// set displayed version
+program.version(version);
 
 // > crank init [plugin/behavior/effect]
 // Initializes an addon project with the correct template files.
