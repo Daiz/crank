@@ -7,6 +7,7 @@ var program = require('commander'),
 // load our own modules
 var init    = require('./tasks/init'),
     build   = require('./tasks/build'),
+    watch   = require('./tasks/watch'),
     devmode = require('./tasks/devmode');
 
 // set some shortcut variables
@@ -74,7 +75,12 @@ program
   .command('watch')
   .description("Watch files and update the addon in C2 on changes. Windows-only.")
   .action(function() {
-    wincheck();
+    if(!addon) {
+      console.log("No project found. Aborting.");
+      process.exit(1);
+    } else {
+      watch(addon, appdata);
+    }
 
   });
 
