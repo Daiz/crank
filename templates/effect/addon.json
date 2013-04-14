@@ -1,7 +1,8 @@
 {
   "type": "effect",
+  "id": "myuniqueeffectid",
   "name": "My Construct 2 Effect",
-  "version": "0.1",
+  "version": "1.0",
   "author": "Your Name Here",
   "website": "http://example.com",
   "documentation": "https://www.scirra.com/manual/1/construct-2",
