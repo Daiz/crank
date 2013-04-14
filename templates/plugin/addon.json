@@ -2,6 +2,7 @@
   "type": "plugin",
   "id": "myuniquepluginid",
   "name": "My Construct 2 Plugin",
+  "category": "General",
   "version": "1.0",
   "author": "Your Name Here",
   "website": "http://example.com",

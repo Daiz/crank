@@ -2,6 +2,7 @@
   "type": "behavior",
   "id": "myuniquebehaviorid",
   "name": "My Construct 2 Behavior",
+  "category": "General",
   "version": "1.0",
   "author": "Your Name Here",
   "website": "http://example.com",

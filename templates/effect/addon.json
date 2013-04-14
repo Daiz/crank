@@ -2,6 +2,7 @@
   "type": "effect",
   "id": "myuniqueeffectid",
   "name": "My Construct 2 Effect",
+  "category": "Color",
   "version": "1.0",
   "author": "Your Name Here",
   "website": "http://example.com",
