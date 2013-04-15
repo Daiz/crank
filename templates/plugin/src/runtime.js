@@ -6,20 +6,15 @@ assert2(cr.plugins_, "cr.plugins_ not created");
 
 /////////////////////////////////////
 // Plugin class
-// *** CHANGE THE PLUGIN ID HERE *** - must match the "id" property in edittime.js
-//          vvvvvvvv
-cr.plugins_.MyPlugin = function(runtime)
+cr.plugins_.AddonId = function(runtime)
 {
 	this.runtime = runtime;
 };
 
 (function ()
 {
-	/////////////////////////////////////
-	// *** CHANGE THE PLUGIN ID HERE *** - must match the "id" property in edittime.js
-	//                            vvvvvvvv
-	var pluginProto = cr.plugins_.MyPlugin.prototype;
-		
+	var pluginProto = cr.plugins_.AddonId.prototype;
+
 	/////////////////////////////////////
 	// Object type class
 	pluginProto.Type = function(plugin)
@@ -41,11 +36,11 @@ cr.plugins_.MyPlugin = function(runtime)
 	{
 		this.type = type;
 		this.runtime = type.runtime;
-		
+
 		// any other properties you need, e.g...
 		// this.myValue = 0;
 	};
-	
+
 	var instanceProto = pluginProto.Instance.prototype;
 
 	// called whenever an instance is created
@@ -55,14 +50,14 @@ cr.plugins_.MyPlugin = function(runtime)
 		// e.g...
 		// this.myValue = 0;
 	};
-	
+
 	// called whenever an instance is destroyed
 	// note the runtime may keep the object after this call for recycling; be sure
 	// to release/recycle/reset any references to other objects in this function.
 	instanceProto.onDestroy = function ()
 	{
 	};
-	
+
 	// called when saving the full state of the game
 	instanceProto.saveToJSON = function ()
 	{
@@ -74,7 +69,7 @@ cr.plugins_.MyPlugin = function(runtime)
 			//"myValue": this.myValue
 		};
 	};
-	
+
 	// called when loading the full state of the game
 	instanceProto.loadFromJSON = function (o)
 	{
@@ -84,12 +79,12 @@ cr.plugins_.MyPlugin = function(runtime)
 		// note you MUST use double-quote syntax (e.g. o["property"]) to prevent
 		// Closure Compiler renaming and breaking the save format
 	};
-	
+
 	// only called if a layout object - draw to a canvas 2D context
 	instanceProto.draw = function(ctx)
 	{
 	};
-	
+
 	// only called if a layout object in WebGL mode - draw to the WebGL context
 	// 'glw' is not a WebGL context, it's a wrapper - you can find its methods in GLWrap.js in the install
 	// directory or just copy what other plugins do.
@@ -99,49 +94,46 @@ cr.plugins_.MyPlugin = function(runtime)
 
 	//////////////////////////////////////
 	// Conditions
-	function Cnds() {};
+	function Cnds() {}
 
 	// the example condition
-	Cnds.prototype.MyCondition = function (myparam)
-	{
+	Cnds.prototype.MyCondition = function (myparam) {
 		// return true if number is positive
 		return myparam >= 0;
 	};
-	
+
 	// ... other conditions here ...
-	
+
 	pluginProto.cnds = new Cnds();
-	
+
 	//////////////////////////////////////
 	// Actions
-	function Acts() {};
+	function Acts() {}
 
 	// the example action
-	Acts.prototype.MyAction = function (myparam)
-	{
+	Acts.prototype.MyAction = function (myparam) {
 		// alert the message
 		alert(myparam);
 	};
-	
+
 	// ... other actions here ...
-	
+
 	pluginProto.acts = new Acts();
-	
+
 	//////////////////////////////////////
 	// Expressions
-	function Exps() {};
-	
+	function Exps() {}
+
 	// the example expression
-	Exps.prototype.MyExpression = function (ret)	// 'ret' must always be the first parameter - always return the expression's result through it!
-	{
+	Exps.prototype.MyExpression = function (ret) {	// 'ret' must always be the first parameter - always return the expression's result through it!
 		ret.set_int(1337);				// return our value
 		// ret.set_float(0.5);			// for returning floats
 		// ret.set_string("Hello");		// for ef_return_string
 		// ret.set_any("woo");			// for ef_return_any, accepts either a number or string
 	};
-	
+
 	// ... other expressions here ...
-	
+
 	pluginProto.exps = new Exps();
 
 }());
