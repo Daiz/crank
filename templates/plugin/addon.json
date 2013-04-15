@@ -7,5 +7,23 @@
   "author": "Your Name Here",
   "website": "http://example.com",
   "documentation": "https://www.scirra.com/manual/1/construct-2",
-  "description": "A short description of what this plugin does."
+  "description": "A short description of what this plugin does.",
+  "plugin": {
+    "type": "world",
+    "rotatable": true,
+    "flags": {
+      "pf_singleglobal"    : 0,
+      "pf_texture"         : 0,
+      "pf_position_aces"   : 0,
+      "pf_size_aces"       : 0,
+      "pf_angle_aces"      : 0,
+      "pf_appearance_aces" : 0,
+      "pf_tiling"          : 0,
+      "pf_animations"      : 0,
+      "pf_zorder_aces"     : 0,
+      "pf_nosize"          : 0,
+      "pf_effects"         : 0,
+      "pf_predraw"         : 0
+    }
+  }
 }

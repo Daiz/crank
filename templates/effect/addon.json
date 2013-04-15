@@ -7,5 +7,21 @@
   "author": "Your Name Here",
   "website": "http://example.com",
   "documentation": "https://www.scirra.com/manual/1/construct-2",
-  "description": "A short description of what this effect does."
+  "description": "A short description of what this effect does.",
+  "effect": {
+    "extend-box-horizontal" : 0,
+    "extend-box-vertical"   : 0,
+    "blends-background" : false,
+    "cross-sampling"    : false,
+    "animated"          : false,
+    "parameters": [
+      {
+        "name": "Example parameter",
+        "description": "An example parameter for this effect.",
+        "type": "float",
+        "initial": "1.0",
+        "uniform": "exampleParam"
+      }
+    ]
+  }
 }
